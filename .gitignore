@@ -1,0 +1,85 @@
+# Arquivos do Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtualenv
+.venv/
+venv/
+ENV/
+env/
+bin/
+include/
+lib/
+lib64/
+pyvenv.cfg
+pip-selfcheck.json
+
+# IDE e editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-workspace
+*.sublime-project
+
+# Arquivos de sistema
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Arquivos de log
+*.log
+*.log.*
+logs/
+
+# Arquivos de banco de dados MQTT (Mosquitto)
+*.db
+*.db-journal
+
+# Arquivos gerados pelo Maven (se tiver parte Java)
+target/
+.classpath
+.project
+.settings/
+
+# Arquivos de configuração local
+config_local.ini
+settings_local.py
+.env
+.secrets
+
+# Arquivos de dados temporários
+*.tmp
+*.temp
+
+# Arquivos de mídia para demonstração
+/video_demo/
+!/video_demo/README.md
+
+# Exceções (mantém arquivos necessários mesmo se estiverem em pastas ignoradas)
+!*.md
+!*.rst
+!.gitkeep
