@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 public class CalculadoraClientSocket {
+    // Definindo constantes
     private static final String SERVER_IP = "0.0.0.0";
     private static final int SERVER_PORT = 9090;
     private static final int MAX_RETRIES = 3;
@@ -27,7 +28,7 @@ public class CalculadoraClientSocket {
             }
 
             try {
-                double result = evaluateExpression(input);
+                double result = evaluateExpression(input); // Fazendo o teste da expressão e obtendo o resultado
                 System.out.println("Resultado = " + result);
             } catch (Exception e) {
                 System.out.println("Erro: " + e.getMessage());
@@ -37,7 +38,7 @@ public class CalculadoraClientSocket {
     }
 
     private static double evaluateExpression(String expression) throws Exception {
-        // Processa parênteses primeiro (avalia do mais interno para o mais externo)
+        // Processa parênteses primeiro (avalia do mais interno para o mais externo) decompondo usando recursão e devolvendo o resultado no final
         while (true) {
             Matcher matcher = Pattern.compile("\\(([^()]+)\\)").matcher(expression);
             if (!matcher.find()) break;
@@ -50,6 +51,7 @@ public class CalculadoraClientSocket {
         return evaluateSimpleExpression(expression);
     }
 
+    // 
     private static double evaluateSimpleExpression(String expr) throws Exception {
         // Remove espaços em branco
         expr = expr.replaceAll("\\s+", "");
@@ -100,12 +102,13 @@ public class CalculadoraClientSocket {
         }
     }
 
+    // manda a operação para o servidor Socket e retorna a resposta
     private static double sendToServer(String operation, double num1, double num2) throws Exception {
         int operationCode = getOperationCode(operation);
         int attempt = 0;
         Exception lastError = null;
 
-        while (attempt < MAX_RETRIES) {
+        while (attempt < MAX_RETRIES) { // Tentativas de conexão com o server
             try {
                 Socket clientSocket = new Socket(SERVER_IP, SERVER_PORT);
                 DataOutputStream out = new DataOutputStream(clientSocket.getOutputStream());

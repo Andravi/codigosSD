@@ -12,7 +12,7 @@ public class CalculadoraServerSocket {
             System.out.println("Servidor calculadora iniciado na porta " + PORT);
             System.out.println("Aguardando conexões...\n");
 
-            while (true) {
+            while (true) { // FIca procurando por mensagens de clientes
                 try {
                     Socket connectionSocket = welcomeSocket.accept();
                     new ClientHandler(connectionSocket).start();
